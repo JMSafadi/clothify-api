@@ -11,10 +11,10 @@ app.listen(port, () => {
 
 app.use(express.json())
 
-const whitelist = ['http://127.0.0.1:5173/', 'http://localhost:5173/', 'https://shop-clothify.web.app/']
+const whiteList = ['http://127.0.0.1:5173', 'http://localhost:5173/', 'https://shop-clothify.web.app/']
 const options = {
   origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
+    if (whiteList.includes(origin) || !origin) {
       callback(null, true)
     } else {
       callback(new Error('Error'))
