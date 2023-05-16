@@ -19,6 +19,7 @@ app.use(express.json())
 // }
 
 // app.use(cors(options))
+app.use(cors())
 
 app.get('/api', (req, res) => {
   res.send('<h1>Welcome to Clothify API. Go to /products</h1>')
