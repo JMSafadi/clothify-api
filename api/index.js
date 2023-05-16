@@ -11,7 +11,7 @@ app.listen(port, () => {
 
 app.use(express.json())
 
-const whitelist = ['http://localhost:8080/', 'http://127.0.0.1:5173/', 'http://localhost:5173/']
+const whitelist = ['http://127.0.0.1:5173/', 'http://localhost:5173/', 'https://shop-clothify.web.app/']
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin)) {
@@ -21,10 +21,10 @@ const options = {
     }
   }
 }
-// app.use(cors(options))
 
 app.get('/api', (req, res) => {
   res.send('Welcome to Clothify API. Go to /products')
 })
 
 routerApi(app)
+app.use(cors(options))
