@@ -3,7 +3,7 @@ const routerApi = require('./routes/')
 const cors = require('cors')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.listen(port, () => {
   console.log('My port:', port)
@@ -23,7 +23,7 @@ const options = {
 }
 // app.use(cors(options))
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Welcome to Clothify API. Go to /products')
 })
 
